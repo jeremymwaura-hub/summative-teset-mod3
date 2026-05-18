@@ -199,3 +199,8 @@
 .card .muted { color: #666; font-size: 13px }
 .card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px }
 
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr }
+  .card { padding: 10px }
+}
+

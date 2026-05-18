@@ -4,20 +4,24 @@ export default function useProducts() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    const saved = localStorage.getItem('ms_products')
-    if (saved) {
-      setProducts(JSON.parse(saved))
-      return
-    }
-
+    // Always fetch latest catalog from db.json on startup and persist it.
+    // If fetch fails (offline), fall back to any saved localStorage copy.
     fetch('/db.json')
       .then((res) => res.json())
       .then((data) => {
         const initial = data.products || []
         setProducts(initial)
-        localStorage.setItem('ms_products', JSON.stringify(initial))
+        try {
+          localStorage.setItem('ms_products', JSON.stringify(initial))
+        } catch (e) {
+          // ignore storage errors
+        }
       })
-      .catch(() => setProducts([]))
+      .catch(() => {
+        const saved = localStorage.getItem('ms_products')
+        if (saved) setProducts(JSON.parse(saved))
+        else setProducts([])
+      })
   }, [])
 
   function addProduct(product) {

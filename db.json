@@ -11,7 +11,7 @@
 		{
 			"id": 1,
 			"name": "Kenyan Arabica",
-			"description": "Bright, fruity notes — light roast.",
+			"description": "Bright, fruity notes — light roast. A morning favourite.",
 			"origin": "Kenya",
 			"price": 9.5
 		},
@@ -21,6 +21,48 @@
 			"description": "Dark, chocolatey — perfect for espresso shots.",
 			"origin": "Blend",
 			"price": 12.0
+		},
+		{
+			"id": 3,
+			"name": "Ethiopian Yirgacheffe",
+			"description": "Floral and tea-like with citrus highlights.",
+			"origin": "Ethiopia",
+			"price": 11.0
+		},
+		{
+			"id": 4,
+			"name": "Colombian Supremo",
+			"description": "Balanced body, caramel sweetness — crowd pleaser.",
+			"origin": "Colombia",
+			"price": 10.0
+		},
+		{
+			"id": 5,
+			"name": "Decaf Sunrise",
+			"description": "Smooth decaf with warm nutty tones.",
+			"origin": "Brazil",
+			"price": 8.5
+		},
+		{
+			"id": 6,
+			"name": "Single-Origin Sumatra",
+			"description": "Earthy, herbal notes with a heavy body.",
+			"origin": "Indonesia",
+			"price": 13.0
+		},
+		{
+			"id": 7,
+			"name": "Vanilla Bean Roast",
+			"description": "Gentle vanilla sweetness, medium roast — dessert-friendly.",
+			"origin": "Blend",
+			"price": 10.5
+		},
+		{
+			"id": 8,
+			"name": "Cold Brew Blend",
+			"description": "Low-acidity blend crafted for smooth cold brew.",
+			"origin": "Blend",
+			"price": 14.0
 		}
 	]
 }

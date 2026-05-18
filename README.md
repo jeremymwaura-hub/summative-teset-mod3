@@ -1,3 +1,30 @@
+# Moringa Market — Admin Portal
+
+This is a small React single-page application built as a Moringa School summative project. It demonstrates basic admin features for a tiny e-commerce store: viewing products, searching, adding a product, and editing product price.
+
+Quick start
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Run dev server
+
+```bash
+npm run dev
+```
+
+3. Run tests
+
+```bash
+npm test
+```
+
+Notes
+- The app loads initial data from `db.json` and stores runtime changes in `localStorage` for demo purposes.
+- To use a real JSON API, run `json-server --watch db.json --port 3000` and update fetch calls.
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

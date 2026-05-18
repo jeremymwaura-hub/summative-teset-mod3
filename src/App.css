@@ -182,3 +182,20 @@
     border-right-color: var(--border);
   }
 }
+
+/* App specific helpers for product pages */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+.card {
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  background: #fff;
+}
+.card .muted { color: #666; font-size: 13px }
+.card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px }
+

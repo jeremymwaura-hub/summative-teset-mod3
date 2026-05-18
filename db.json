@@ -1,0 +1,26 @@
+{
+	"store_info": [
+		{
+			"id": 1,
+			"name": "Moringa Market",
+			"description": "A curated shop built by a Moringa student — simple, focused, and test-ready.",
+			"phone_number": "0700-000-000"
+		}
+	],
+	"products": [
+		{
+			"id": 1,
+			"name": "Kenyan Arabica",
+			"description": "Bright, fruity notes — light roast.",
+			"origin": "Kenya",
+			"price": 9.5
+		},
+		{
+			"id": 2,
+			"name": "House Espresso",
+			"description": "Dark, chocolatey — perfect for espresso shots.",
+			"origin": "Blend",
+			"price": 12.0
+		}
+	]
+}

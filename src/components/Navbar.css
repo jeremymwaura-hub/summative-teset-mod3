@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.nav a { text-decoration: none; color: #222; margin-left: 12px }
+.nav .brand { font-weight: 700 }
+.nav .cta { background: #2b6cb0; color: white; padding: 6px 10px; border-radius: 6px }

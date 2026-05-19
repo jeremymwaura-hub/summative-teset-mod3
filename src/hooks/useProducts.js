@@ -4,23 +4,34 @@ export default function useProducts() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    // Always fetch latest catalog from db.json on startup and persist it.
-    // If fetch fails (offline), fall back to any saved localStorage copy.
+    const savedJSON = localStorage.getItem('ms_products')
+    const saved = savedJSON ? JSON.parse(savedJSON) : null
+
     fetch('/db.json')
       .then((res) => res.json())
       .then((data) => {
         const initial = data.products || []
-        setProducts(initial)
-        try {
+        if (!saved) {
+          setProducts(initial)
           localStorage.setItem('ms_products', JSON.stringify(initial))
-        } catch (e) {
-          // ignore storage errors
+          return
         }
+
+        const savedById = new Map(saved.map((item) => [item.id, item]))
+        const merged = [...saved]
+        initial.forEach((item) => {
+          if (!savedById.has(item.id)) merged.push(item)
+        })
+
+        setProducts(merged)
+        localStorage.setItem('ms_products', JSON.stringify(merged))
       })
       .catch(() => {
-        const saved = localStorage.getItem('ms_products')
-        if (saved) setProducts(JSON.parse(saved))
-        else setProducts([])
+        if (saved) {
+          setProducts(saved)
+        } else {
+          setProducts([])
+        }
       })
   }, [])
 

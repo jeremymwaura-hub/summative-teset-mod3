@@ -1,21 +1,36 @@
-import { useParams } from 'react-router-dom'
-import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import useProducts from '../hooks/useProducts'
 
 export default function ProductDetail() {
   const { id } = useParams()
-  const { products, updateProduct } = useProducts()
+  const { products, editProduct, removeProduct } = useProducts()
+  const nav = useNavigate()
   const product = products.find((p) => p.id === Number(id))
   const [price, setPrice] = useState(product ? product.price : '')
+  const [feedback, setFeedback] = useState('')
 
-  if (!product) return <p style={{ padding: 20 }}>Product not found.</p>
+  useEffect(() => {
+    if (product) {
+      setPrice(product.price)
+    }
+  }, [product])
 
-  function save() {
+  if (!product) return <p className="page">Product not found.</p>
+
+  async function save() {
     const parsed = Number(price)
     if (Number.isFinite(parsed)) {
-      updateProduct(id, { price: parsed })
-      alert('Price updated')
+      await editProduct(id, { price: parsed })
+      setFeedback('Price updated successfully')
+      return
     }
+    setFeedback('Please enter a valid price')
+  }
+
+  async function remove() {
+    await removeProduct(id)
+    nav('/products')
   }
 
   return (
@@ -27,10 +42,12 @@ export default function ProductDetail() {
         <div className="form-row">
           <label>
             New price
-            <input value={price} onChange={(e) => setPrice(e.target.value)} />
+            <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
           </label>
           <button type="button" onClick={save} className="button btn-primary">Save</button>
+          <button type="button" onClick={remove} className="button btn-secondary">Delete</button>
         </div>
+        {feedback && <p className="note-box">{feedback}</p>}
       </div>
     </section>
   )

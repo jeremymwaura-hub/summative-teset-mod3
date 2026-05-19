@@ -18,15 +18,20 @@ export default function Products() {
   })
 
   return (
-    <section style={{ padding: 20 }}>
-      <h2>Products</h2>
+    <section className="page">
+      <div className="page-actions">
+        <div>
+          <h2 className="page-title">Products</h2>
+          <p className="page-subtitle">Search or tap any product to update its price.</p>
+        </div>
+      </div>
       <SearchBar value={query} onChange={setQuery} />
       <div className="grid">
         {filtered.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
-      {filtered.length === 0 && <p>No products found.</p>}
+      {filtered.length === 0 && <p className="note-box">No products found.</p>}
     </section>
   )
 }

@@ -19,15 +19,18 @@ export default function ProductDetail() {
   }
 
   return (
-    <section style={{ padding: 20 }}>
-      <h2>{product.name}</h2>
-      <p className="muted">{product.origin}</p>
-      <p>{product.description}</p>
-      <div style={{ marginTop: 12 }}>
-        <label>
-          Price: <input value={price} onChange={(e) => setPrice(e.target.value)} />
-        </label>
-        <button onClick={save} style={{ marginLeft: 8 }}>Save</button>
+    <section className="page">
+      <div className="product-detail-card">
+        <h2 className="page-title">{product.name}</h2>
+        <p className="muted">{product.origin}</p>
+        <p>{product.description}</p>
+        <div className="form-row">
+          <label>
+            New price
+            <input value={price} onChange={(e) => setPrice(e.target.value)} />
+          </label>
+          <button type="button" onClick={save} className="button btn-primary">Save</button>
+        </div>
       </div>
     </section>
   )

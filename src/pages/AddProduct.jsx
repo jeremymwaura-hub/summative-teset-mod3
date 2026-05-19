@@ -23,16 +23,26 @@ export default function AddProduct() {
   }
 
   return (
-    <section style={{ padding: 20 }}>
-      <h2>Add Product</h2>
-      <form onSubmit={submit} style={{ display: 'grid', gap: 8, maxWidth: 480 }}>
-        <input ref={nameRef} placeholder="Product name" required />
-        <input ref={originRef} placeholder="Origin" />
-        <textarea ref={descRef} placeholder="Short description" />
-        <input ref={priceRef} placeholder="Price" type="number" step="0.01" />
-        <div>
-          <button type="submit">Add</button>
-        </div>
+    <section className="page">
+      <h2 className="page-title">Add Product</h2>
+      <form onSubmit={submit} className="form-card">
+        <label>
+          Product name
+          <input ref={nameRef} placeholder="Product name" required />
+        </label>
+        <label>
+          Origin
+          <input ref={originRef} placeholder="Origin" />
+        </label>
+        <label>
+          Short description
+          <textarea ref={descRef} placeholder="Short description" />
+        </label>
+        <label>
+          Price
+          <input ref={priceRef} placeholder="Price" type="number" step="0.01" />
+        </label>
+        <button type="submit" className="button btn-primary">Add product</button>
       </form>
     </section>
   )
